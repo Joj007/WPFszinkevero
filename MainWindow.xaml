@@ -1,0 +1,78 @@
+﻿<Window x:Class="WpfApp5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp5"
+        mc:Ignorable="d"
+        Title="Színkeverő" Height="700" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+            <RowDefinition Height="4*"/>
+
+        </Grid.RowDefinitions>
+        <!--RED komponens-->
+        <Slider x:Name="sliPiros" 
+                Grid.ColumnSpan="1"
+                Minimum="0" Maximum="255"
+                VerticalAlignment="Center" 
+                ValueChanged="SzinKeveres"/>
+        <Label Content="Piros"
+               Grid.Column="1" 
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label HorizontalAlignment="Center" Content="0" VerticalAlignment="Center" x:Name="pirosErtek" Grid.Column="2" Grid.Row="0"/>
+
+        <!--GREEN komponens-->
+        <Slider x:Name="sliZold" 
+                Grid.Row="1"
+                Grid.ColumnSpan="1"
+                Minimum="0" Maximum="255"
+                VerticalAlignment="Center" 
+                ValueChanged="SzinKeveres"/>
+        <Label Content="Zöld"
+               Grid.Column="1" Grid.Row="1"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label HorizontalAlignment="Center" Content="0" VerticalAlignment="Center" x:Name="zoldErtek" Grid.Column="2" Grid.Row="1"/>
+
+        <!--BLUE komponens-->
+        <Slider x:Name="sliKek"
+                Grid.ColumnSpan="1"
+                Grid.Row="2"
+                Minimum="0" Maximum="255"
+                VerticalAlignment="Center" 
+                ValueChanged="SzinKeveres"/>
+        <Label Content="Kék"
+               Grid.Column="1" Grid.Row="2" 
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label HorizontalAlignment="Center" Content="0" VerticalAlignment="Center" x:Name="kekErtek" Grid.Column="2" Grid.Row="2"/>
+
+        <!--Gombok-->
+        <Button Grid.Row="3" Margin="0 10" Content="Rögzít" Click="Rogzit"/>
+        <Button Grid.Row="3" Grid.Column="1" Margin="0 10" Click="Torol" Content="Töröl"/>
+        <Button Grid.Row="3" Grid.Column="2" Margin="0 10" Click="Urites" Content="Ürités"/>
+
+        <!--Lista-->
+        <ListBox SelectionChanged="lbSzinek_SelectionChanged" x:Name="lbSzinek" Grid.Row="4" Grid.ColumnSpan="3">
+            
+        </ListBox>
+
+
+
+        <!--Eredmény-->
+        <Rectangle x:Name="rctTeglalap" 
+                   Grid.Row="5" Grid.ColumnSpan="3" 
+                   Margin="10"
+                   Fill="Black"/>
+    </Grid>
+</Window>
